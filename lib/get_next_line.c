@@ -19,9 +19,11 @@ int			get_next_line(int fd, char **line)
 	char		buff[BUFF_SIZE + 1];
 	int 		res;
 
-	if (fd < 0 || !line || BUFF_SIZE < 1 ||
-		(res = read(fd, buff, BUFF_SIZE)) == -1)
-		return (-1);
+	res = 0;
+	if  (!arr[fd] || !ft_strchr(arr[fd], '\n'))
+		if (fd < 0 || !line || BUFF_SIZE < 1 ||
+		 	(res = read(fd, buff, BUFF_SIZE)) == -1)
+				return (-1);
 	arr[fd] = arr[fd] ? arr[fd] : ft_strdup("");
 	tmp = arr[fd];
 	buff[res] = '\0';

@@ -26,7 +26,13 @@ typedef struct s_fdata
 	int		arr_size;
 	int		row;
 	int 	col;
-
+	int		x_shift;
+	int		y_shift;
+	int		*decision_x;
+	int		*decision_y;
+	int		origin_y;
+	int		origin_x;
+	int		decisions_cnt;
 
 }				t_fdata;
 
