@@ -14,7 +14,8 @@ NAME = earteshc.filler
 CC = @gcc
 CFLAGS = -Wall -Wextra -Werror -Ilib/includes
 
-FILLER = main.c
+FILLER = main.c input.c target_enemy.c search_paste_point.c ft_realloc.c work_with_cords.c\
+find_best_place.c prepare_piece.c
 
 OBJ = $(FILLER:.c=.o)
 

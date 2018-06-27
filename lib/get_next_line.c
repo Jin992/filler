@@ -17,13 +17,11 @@ int			get_next_line(int fd, char **line)
 	static char	*arr[100];
 	char		*tmp;
 	char		buff[BUFF_SIZE + 1];
-	int 		res;
+	int			res;
 
-	res = 0;
-	if  (!arr[fd] || !ft_strchr(arr[fd], '\n'))
-		if (fd < 0 || !line || BUFF_SIZE < 1 ||
-		 	(res = read(fd, buff, BUFF_SIZE)) == -1)
-				return (-1);
+	if (fd < 0 || !line || BUFF_SIZE < 1 ||
+			(res = read(fd, buff, BUFF_SIZE)) == -1)
+		return (-1);
 	arr[fd] = arr[fd] ? arr[fd] : ft_strdup("");
 	tmp = arr[fd];
 	buff[res] = '\0';
@@ -33,7 +31,7 @@ int			get_next_line(int fd, char **line)
 	if (!ft_strlen(arr[fd]))
 		return (0);
 	else if (ft_strchr(arr[fd], '\n') &&
-			 (*line = ft_strsub(arr[fd], 0, ft_strchr(arr[fd], '\n') - arr[fd])))
+	(*line = ft_strsub(arr[fd], 0, ft_strchr(arr[fd], '\n') - arr[fd])))
 		arr[fd] = ft_strdup(ft_strchr(tmp, '\n') + 1);
 	else if (!res && ft_strlen(arr[fd]) && (*line = ft_strdup(arr[fd])))
 		arr[fd] = NULL;
